@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 const EmployeeForm = ({ onSuccess }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -15,8 +16,9 @@ const EmployeeForm = ({ onSuccess }) => {
   };
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
-    axios.post('http://localhost:8080/public/app/employees', formData)
+    axios.post(`${import.meta.env.REACT_APP_API_URL}/public/app/employees`, formData)
       .then((response) => {
         onSuccess();
         setFormData({ name: '', position: '', salary: '' });
