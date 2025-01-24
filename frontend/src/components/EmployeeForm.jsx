@@ -17,8 +17,9 @@ const EmployeeForm = ({ onSuccess }) => {
 
   const handleSubmit = (e) => {
     
+    
     e.preventDefault();
-    axios.post(`${import.meta.env.REACT_APP_API_URL}/public/app/employees`, formData)
+    axios.post(`https://demo-app-latest-x4vw.onrender.com/public/app/employees`, formData)
       .then((response) => {
         onSuccess();
         setFormData({ name: '', position: '', salary: '' });

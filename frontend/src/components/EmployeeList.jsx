@@ -1,18 +1,19 @@
 // src/components/EmployeeList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import process from 'process';
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.REACT_APP_API_URL}/public/app/employees`)
+    axios.get(`https://demo-app-latest-x4vw.onrender.com/public/app/employees`)
       .then((response) => setEmployees(response.data))
       .catch((error) => console.error('Error fetching employees:', error));
   }, []);
 
   const handleDelete = (id) => {
-    axios.delete(`${import.meta.env.REACT_APP_API_URL}/public/app/employees/${id}`)
+    
+    axios.delete(`https://demo-app-latest-x4vw.onrender.com/public/app/employees/${id}`)
       .then(() => setEmployees(employees.filter(emp => emp.id !== id)))
       .catch((error) => console.error('Error deleting employee:', error));
   };
